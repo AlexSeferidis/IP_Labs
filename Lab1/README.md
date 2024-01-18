@@ -25,7 +25,9 @@ Below is proof of this - via the compilation report / flow summary:
 
 ![flowsumt1](task1/flowsummarytask1.PNG)
 
-INSERT VIDEO HERE
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/f86cdd53-e732-4381-a5e5-bbf10d484ad9
+
+
 
 ---
 ## Task 2 ##
@@ -58,4 +60,6 @@ Finally we performed a test of the extended program, below is a video of the tes
 
 ![compreportt2](task2/compilationreport.PNG)
 
-INSERT VIDEO HERE
+
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/2098ade2-62f5-4382-aec3-e4526025bf13
+

@@ -48,7 +48,9 @@ We can see from the Tech-map that there are 11 pins in use given the 4 I/Ps from
 
 We can also see the 8 logical components being used from the synthesised view with the 7 OR gates and 1 Decoder.
 
-### **NEED TO DO TIMING ANALYSER** ###
+Below is the timing analysis of our program:
+
+![manualassignment](task1/timing_analysis.PNG)
 
 We now created a top file to display all 10-bit sliding switches as hexadecimal on 3 of the 7 segment LED displays:
 

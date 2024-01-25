@@ -10,12 +10,12 @@ We added them to the system contents page as shown below:
 
 The components included:
 - A system clock
-- A cpu
-- memory module
-- a button (peripheral)
-- a switch
+- A CPU
+- Memory module
+- A button (peripheral)
+- A switch
 - LED control (peripheral)
-- and 6 Hex components corresponding to the 7 segment displays (peripherals)
+- And 6 Hex components corresponding to the 7 segment displays (peripherals)
 - sysid_qsys_0
 
 We then connected the components together as shown and assigned base address:
@@ -141,7 +141,9 @@ nios_setup_v2 u0 (
 
 *Note: Here we are instantiating the qsys system (NIOS2 CPU System) and connecting it with the higher level module*
 
-WE COULD NOT GET THE ASSIGNMENT EDITOR WORKING - ASK!!!!
+We can see hpw the pins are assigned via the assingment editor:
+
+![assignment](task2/assignmenteditor.jpg)
 
 We were now ready to compile, the compilation report can be seen below:
 
@@ -150,6 +152,56 @@ We were now ready to compile, the compilation report can be seen below:
 ---
 ## Task 2 ##
 
+In task 2 we work on building the software for the 'Hello World' design.
 
----
+We built the following 'Hello World' Code:
+
+``` C
+#include <sys/alt_stdio.h>
+#include <stdio.h>
+#include "altera_avalon_pio_regs.h"
+#include "system.h"
+
+int main()
+{
+	int switch_datain;
+	alt_putstr("Hello from Nios II!\n");
+	alt_putstr("When you press Push Button 0,1 the switching on of the LEDs is done by software\n");
+	alt_putstr("But, Switching on/off of LED 2 by SW 2 is done by hardware\n");
+	/* Event loop never exits. Read the PB, display on the LED */
+
+	while (1)
+	{
+		//Gets the data from the pb, recall that a 0 means the button is pressed
+		switch_datain = ~IORD_ALTERA_AVALON_PIO_DATA(BUTTON_BASE);
+		//Mask the bits so the leftmost LEDs are off (we only care about LED3-0)
+		switch_datain &= (0b0000000011);
+		//Send the data to the LED
+		IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE,switch_datain);
+
+	}
+	return 0;
+}
+
+```
+
+Below is a table explaining the program:
+
+| Program Part | Explaination 																						 |
+| ------------ | :----------- 																						 |
+| alt_putstr   | Writes text to terminal (used over C printf function because it is more compact using HAL commands) |
+| IOWD_ALTERA_AVALON_PIO_DATA(Location) | Gets data from specified location and reads it into a variable 			 |
+| IORR_ALTERA_AVALON_PIO_DATA(Location, Value) | Writes the numeric Value to the given Location 					 |
+| BUTTON_BASE  | Variable created by by importing the information from .sopcinfo file  							     |
+| LED_BASE     | Variable created by by importing the information from .sopcinfo file  							     |
+
+The defined variables were found in the system.h file, as shown below:
+
+![systemh](task2/systemh.jpg)
+
+After running the code we got the following terminal O/P:
+
+![console](task2/consoleoutputhelloworld.jpg)
+
+
 ## Task 3 ##

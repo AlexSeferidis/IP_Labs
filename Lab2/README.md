@@ -205,11 +205,14 @@ After running the code we got the following terminal O/P:
 
 Also shown is a video of us getting the LEDs working
 
-INSERT VIDEO HERE
+
+
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/b697d5a3-89fa-4baa-8d0b-cd33911b2638
+
+
 
 In order to do this we added the following code:
 
-INSERT CODE HERE
 ``` Verilog
 nios_setup_v2 u0 (
 		.clk_clk                           (MAX10_CLK1_50),                           //                        clk.clk

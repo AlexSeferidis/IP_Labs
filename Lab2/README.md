@@ -203,5 +203,43 @@ After running the code we got the following terminal O/P:
 
 ![console](task2/consoleoutputhelloworld.jpg)
 
+Also shown is a video of us getting the LEDs working
+
+INSERT VIDEO HERE
+
+In order to do this we added the following code:
+
+INSERT CODE HERE
+``` Verilog
+nios_setup_v2 u0 (
+		.clk_clk                           (MAX10_CLK1_50),                           //                        clk.clk
+		.reset_reset_n                     (1'b1),                     //                      reset.reset_n
+		.button_external_connection_export (KEY[1:0]), // button_external_connection.export
+		.switch_external_connection_export (SW[9:0]), // switch_external_connection.export
+		.led_external_connection_export    (ledFromNios[9:0]),    //    led_external_connection.export
+		.hex0_external_connection_export   (HEX0),   //   hex0_external_connection.export
+		.hex_1_external_connection_export  (HEX1),  //  hex_1_external_connection.export
+		.hex_2_external_connection_export  (HEX2),  //  hex_2_external_connection.export
+		.hex_3_external_connection_export  (HEX3),  //  hex_3_external_connection.export
+		.hex_4_external_connection_export  (HEX4),  //  hex_4_external_connection.export
+		.hex_5_external_connection_export  (HEX5)   //  hex_5_external_connection.export
+	);
+
+
+//=======================================================
+//  Structural coding
+//=======================================================
+
+
+	assign LEDR[2] = SW[2];
+
+
+   wire [9:0] ledFromNios;
+	assign LEDR[1:0] = ledFromNios[1:0];
+	assign LEDR[9:3] = ledFromNios[9:3];
+
+```
+
+This added an intermediete wire between the LED and the switch which allowed us to control LED[2] using SW[2]. We then made sure the other LEDR signals were assigned as normal.
 
 ## Task 3 ##

@@ -89,7 +89,6 @@ nios_setup_v2 u0 (
 
 	assign LEDR[2] = SW[2];
 
-	//ignore what is below here
 
    wire [9:0] ledFromNios;
 	assign LEDR[1:0] = ledFromNios[1:0];

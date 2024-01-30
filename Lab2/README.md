@@ -246,3 +246,75 @@ nios_setup_v2 u0 (
 This added an intermediete wire between the LED and the switch which allowed us to control LED[2] using SW[2]. We then made sure the other LEDR signals were assigned as normal.
 
 ## Task 3 ##
+
+We now changed the program to give us varying LED patterns. Our idea was to create one pattern which sequentially turned on adjacent lights until they were all on, and then turn off. The other pattern was turning on the odd and even indexed LEDs.
+
+The first pattern was controlled with button 0 and the 2nd was controlled with button 1. 
+
+Below shows the code which implemented this:
+
+``` C
+#include <sys/alt_stdio.h>
+#include <stdio.h>
+#include "altera_avalon_pio_regs.h"
+#include "system.h"
+#include <unistd.h>
+
+int  load(int i){
+	i = i << 1;
+	return i + 1;
+
+}
+
+int main()
+{
+	int switch_datain;
+	alt_putstr("Hello from Nios II!\n");
+	alt_putstr("When you press Push Button 0,1 the switching on of the LEDs is done by software\n");
+	alt_putstr("But, Switching on/off of LED 2 by SW 2 is done by hardware\n");
+	/* Event loop never exits. Read the PB, display on the LED */
+
+	while (1)
+	{
+		//Gets the data from the pb, recall that a 0 means the button is pressed
+		switch_datain = ~IORD_ALTERA_AVALON_PIO_DATA(BUTTON_BASE);
+		//Mask the bits so the leftmost LEDs are off (we only care about LED3-0)
+		switch_datain &= (0b0000000011);
+
+		if(switch_datain == 0b01){
+			alt_putstr("Loading...\n");
+			switch_datain = 1;
+			for (int i = 0; i < 10; i ++){
+				IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE,switch_datain);
+				switch_datain = load(switch_datain);
+				usleep(500000);
+			}
+		}
+
+		if(switch_datain == 0b10){
+			alt_putstr("Lights\n");
+			for(int i = 0; i < 10; i++){
+				switch_datain = 0b1010101010;
+				IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE,switch_datain);
+				usleep(300000);
+				switch_datain = 0b0101010101;
+				IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE,switch_datain);
+				usleep(300000);
+			}
+		}
+
+		switch_datain = 0;
+		IOWR_ALTERA_AVALON_PIO_DATA(LED_BASE,switch_datain);
+
+	}
+	return 0;
+}
+```
+
+If the first button is pressed then we send the value we are currently sending to the LED O/P to the load function which we shift left once and add 1. This means that all previous lights stay on.
+
+If the second button is pressed then we iterate 11 times through the odd and even, alternating LEDs.
+
+Below is the video showing this:
+
+HERE ARE VIDEOS OF THE WORKING STUFF

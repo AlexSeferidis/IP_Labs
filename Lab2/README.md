@@ -317,4 +317,21 @@ If the second button is pressed then we iterate 11 times through the odd and eve
 
 Below is the video showing this:
 
-HERE ARE VIDEOS OF THE WORKING STUFF
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/afb05e79-5837-4d9c-aaf2-56586495016e
+
+
+
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/40e0a97b-cd99-4d48-bf8c-5f2e12e105f7
+
+
+
+
+
+
+
+
+
+
+
+
+

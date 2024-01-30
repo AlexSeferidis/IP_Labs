@@ -72,7 +72,7 @@ nios_setup_v2 u0 (
 		.reset_reset_n                     (1'b1),                     //                      reset.reset_n
 		.button_external_connection_export (KEY[1:0]), // button_external_connection.export
 		.switch_external_connection_export (SW[9:0]), // switch_external_connection.export
-		.led_external_connection_export    (ledFromNios[9:0]),    //    led_external_connection.export
+		.led_external_connection_export    (LEDR[9:0]),    //    led_external_connection.export
 		.hex0_external_connection_export   (HEX0),   //   hex0_external_connection.export
 		.hex_1_external_connection_export  (HEX1),  //  hex_1_external_connection.export
 		.hex_2_external_connection_export  (HEX2),  //  hex_2_external_connection.export
@@ -87,12 +87,11 @@ nios_setup_v2 u0 (
 //=======================================================
 
 
-	assign LEDR[2] = SW[2];
+	//assign LEDR[2] = SW[2];
 
-	//ignore what is below here
 
-   wire [9:0] ledFromNios;
-	assign LEDR[1:0] = ledFromNios[1:0];
-	assign LEDR[9:3] = ledFromNios[9:3];
+//   wire [9:0] ledFromNios;
+//	assign LEDR[1:0] = ledFromNios[1:0];
+//	assign LEDR[9:3] = ledFromNios[9:3];
 
 endmodule

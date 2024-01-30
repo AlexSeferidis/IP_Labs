@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/gsamr/Downloads/de10-lite-qsys-workshop/DE10_Lite_qsys_workshop/DE10_Lite_qsys_workshop/DE10_Lite_restored/output_files/") File("top.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/gsamr/Desktop/Uni/Yr2/Information_Processing/Lab-2/DE10_Lite_qsys_workshop/DE10_Lite_restored/output_files/") File("top.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

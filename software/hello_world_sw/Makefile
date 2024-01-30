@@ -142,7 +142,7 @@ ACDS_VERSION := 18.1
 ELF := hello_world_sw.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := hello_world_small.c
+C_SRCS := hello_world.c
 CXX_SRCS :=
 ASM_SRCS :=
 

@@ -14,7 +14,11 @@ And then we instantiated it in the top file, defining its I/Ps and O/Ps:
 
 Then by copying in some existing code and building the project we got the following O/P:
 
-INSERT VIDEO HERE
+
+
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/db842eab-9043-4fb5-8e38-db175cbb4435
+
+
 
 ---
 ## Task 2 ##

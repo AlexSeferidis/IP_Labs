@@ -139,6 +139,63 @@ The PWM control creates a smoother LED effect.
 
 ## Task 3 ##
 
-In this section, we will add an FIR filter to perform a low-pass filtering of the accelerometer values.
+In this section, we will add an FIR filter to perform a low-pass filtering of the accelerometer values. This meant we had to perform a convolution of the incoming raw data values and 1/TapNumber to create a moving average, low pass filter. We designed the filter using MATLAB to get the coeefecients and the frequency response:
+
+![coeff](task3/FIRCoef.jpg)
+
+![freqresponse](task3/FIRfreqresponse.jpg)
+
+
+Below is the function which implemented the filter:
+
+Moving Average:
+
+``` C
+float applyFilter(float new_reading){
+      static float filter[FILTER_TAP_NUM] = {0};
+      float filtered_reading = 0;
+
+      for(int i = FILTER_TAP_NUM - 1; i > 0; i--){
+            filter[i] = filter[i-1];
+      }
+
+      filter[0] = new_reading;
+
+      for(int i = 0; i < FILTER_TAP_NUM; i++){
+            filtered_reading += filter[i] * (1.0/FILTER_TAP_NUM);
+      }
+
+
+      return filtered_reading;
+}
+
+```
+
+MATLAB Coeffecients:
+
+``` C
+float applyFilter(float new_reading){
+      static float filter[FILTER_TAP_NUM] = {0};
+      static float coeff[] = {-0.1204, 0.2879, 0.6369, 0.2879};
+      float filtered_reading = 0;
+
+      for(int i = FILTER_TAP_NUM - 1; i > 0; i--){
+            filter[i] = filter[i-1];
+      }
+
+      filter[0] = new_reading;
+
+      for(int i = 0; i < FILTER_TAP_NUM; i++){
+            filtered_reading += filter[i] * coeff[i];
+      }
+      return filtered_reading;
+}
+
+```
+
+From this we got a smoother movement from the LEDs:
+
+INSERT VIDEO HERE
+
 
 ## Task 3 (Challenge) ##

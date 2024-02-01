@@ -1,0 +1,8 @@
+[Unit]
+Description=TCP server service
+After=multi-user.target
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/ubuntu/tcpserver.py
+[Install]
+WantedBy=multi-user.target

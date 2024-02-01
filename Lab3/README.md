@@ -195,7 +195,8 @@ float applyFilter(float new_reading){
 
 From this we got a smoother movement from the LEDs:
 
-INSERT VIDEO HERE
+
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/39c28e8b-8bc5-4afc-9d52-197b313cdfa7
 
 
 ## Task 3 (Challenge) ##

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>31-Jan-2024 13:05:54</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1706706354523</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>01-Feb-2024 10:12:40</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1706782360269</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\gsamr\Desktop\Uni\Yr2\Information_Processing\Lab-3\software\nios_accelerometer1_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_accelerometer.sopcinfo</SopcDesignFile>

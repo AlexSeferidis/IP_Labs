@@ -200,3 +200,26 @@ https://github.com/AlexSeferidis/IP_Labs/assets/123762865/39c28e8b-8bc5-4afc-9d5
 
 
 ## Task 3 (Challenge) ##
+
+We optimised the FIR filter by using fixed point operations instead of floating point ones as these were less resource intensive. This is because binary shifts for example can be done in considerably fewer clock cycles than floating point multiplication. The new code can be seen below:
+
+``` C
+
+INSERT CODE HERE
+
+```
+
+Which meant we could use a higher tap filter and get a smoother result
+
+INSERT VIDEO HERE
+
+We then measured the sampling frequency of the accelerometer with the following code:
+
+``` C
+
+INSERT CODE
+
+```
+Which gave the following result:
+
+INSERT RESULT

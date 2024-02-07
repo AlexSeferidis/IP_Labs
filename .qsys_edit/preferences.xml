@@ -3,15 +3,16 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="47" />
+   <connections preferredWidth="143" />
    <irq preferredWidth="34" />
    <name preferredWidth="358" />
    <endaddress preferredWidth="88" />
    <tags preferredWidth="89" />
    <opcodeName preferredWidth="169" />
    <export preferredWidth="353" />
+   <description preferredWidth="514" />
   </columns>
  </systemtable>
  <library expandedCategories="Project,Library" />
- <window width="3072" height="1812" x="0" y="0" />
+ <window width="1560" height="1824" x="1524" y="0" />
 </preferences>

@@ -205,13 +205,24 @@ We optimised the FIR filter by using fixed point operations instead of floating 
 
 ``` C
 
-INSERT CODE HERE
+alt_32 filter(alt_32 acc_read [TAPS], alt_32 coeffs [TAPS]){
+	alt_32 avg = 0;
+	for (int i = 0; i < TAPS; i++){
+		avg += acc_read[i]*coeffs[i];
+	}
+	// Filter Tap 2^7
+	return avg >> 7;
+}
 
 ```
 
 Which meant we could use a higher tap filter and get a smoother result
 
-INSERT VIDEO HERE
+
+
+https://github.com/AlexSeferidis/IP_Labs/assets/123762865/341b8eea-2d39-45a2-a9fe-bee6532f9b91
+
+
 
 We then measured the sampling frequency of the accelerometer with the following code:
 

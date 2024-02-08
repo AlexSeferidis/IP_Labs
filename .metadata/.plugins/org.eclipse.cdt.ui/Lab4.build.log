@@ -1,0 +1,41 @@
+09:45:22 **** Build of configuration Nios II for project Lab4 ****
+make all 
+Info: Building ../Lab4_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Lab4_bsp/
+[BSP build complete]
+Info: Compiling accelerometer.c to obj/default/accelerometer.o
+nios2-elf-gcc -xc -MP -MMD -c -I../Lab4_bsp//HAL/inc -I../Lab4_bsp/ -I../Lab4_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/accelerometer.o accelerometer.c
+accelerometer.c:8:10: error: #include expects "FILENAME" or <FILENAME>
+ #include “alt_types.h”
+          ^
+accelerometer.c:9:10: error: #include expects "FILENAME" or <FILENAME>
+ #include “sys/times.h”
+          ^
+accelerometer.c: In function 'main':
+accelerometer.c:91:6: error: unknown type name 'clock_t'
+      clock_t exec_t1, exec_t2;
+      ^
+accelerometer.c:92:16: warning: implicit declaration of function 'times' [-Wimplicit-function-declaration]
+      exec_t1 = times(NULL); // get system time before starting the process
+                ^
+accelerometer.c:103:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+         printf(" proc time = %d ticks \n", int(exec_t2-exec_t1)); % print the number of ticks on the screen
+         ^
+accelerometer.c:103:9: warning: incompatible implicit declaration of built-in function 'printf'
+accelerometer.c:103:9: note: include '<stdio.h>' or provide a declaration of 'printf'
+accelerometer.c:103:44: error: expected expression before 'int'
+         printf(" proc time = %d ticks \n", int(exec_t2-exec_t1)); % print the number of ticks on the screen
+                                            ^
+accelerometer.c:103:67: error: expected expression before '%' token
+         printf(" proc time = %d ticks \n", int(exec_t2-exec_t1)); % print the number of ticks on the screen
+                                                                   ^
+accelerometer.c:91:23: warning: variable 'exec_t2' set but not used [-Wunused-but-set-variable]
+      clock_t exec_t1, exec_t2;
+                       ^
+accelerometer.c:91:14: warning: variable 'exec_t1' set but not used [-Wunused-but-set-variable]
+      clock_t exec_t1, exec_t2;
+              ^
+make: *** [obj/default/accelerometer.o] Error 1
+
+09:45:23 Build Finished (took 840ms)
+

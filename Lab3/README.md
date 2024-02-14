@@ -4,7 +4,7 @@
 
 The first objective was to show how you can interface the NIOS processor with an accelerometer.
 
-First we connected the Accelerometer (SPI) to export enternal connections:
+First we connected the Accelerometer (SPI) to export internal connections:
 
 ![connectspi](task1/accelerometeripop.jpg)
 
@@ -109,7 +109,7 @@ int main() {
 
 ```
 
-The code intialises the intial orientation of the FPGA, then it constantly reads and updates the x value deviation from the Accelerometer and assigns it to a variable. Based on how that variable, x_read is changes we call the convert_read() function. This function takes the constantly updating x_value and updates the LEDs in a corresponding way.
+The code intialises the intial orientation of the FPGA, then it constantly reads and updates the x value deviation from the Accelerometer and assigns it to a variable. Based on how the variable, x_read changes we call the convert_read() function. This function takes the constantly updating x_value and updates the LEDs in a corresponding way.
 
 It does this by subtracting the x reading by an offset of 32, we then shift this value to the right 6 times and mask the value with 0x07. This ensures that we take only the MSBs from the original value. This is done in the following code:
 

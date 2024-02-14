@@ -29,7 +29,7 @@ We then generated the verilog files:
 
 ![generate](task1/Generation.png)
 
-We now had to bind our Qsys system and Verilog code together, synthesised it will look similar to the following diagram:
+We now had to bind our Qsys system and Verilog code together. Once synthesised, it will look similar to the following diagram:
 
 ![topdiagram](task1/topdiagram.png)
 

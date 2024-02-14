@@ -23,7 +23,7 @@ We then connected the components together as shown and assigned base address:
 ![connect1](task1/connection1.png)
 ![connect2](task1/connection2.png)
 
-We also set the reset vector memort and expecption vector memory to onchip_memory.s1 - This ensures the system will execute from onchip memory.
+We also set the reset and expecption vector memory to onchip_memory.s1 - This ensures the system will execute from onchip memory.
 
 We then generated the verilog files:
 

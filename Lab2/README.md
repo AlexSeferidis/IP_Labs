@@ -141,7 +141,7 @@ nios_setup_v2 u0 (
 
 *Note: Here we are instantiating the qsys system (NIOS2 CPU System) and connecting it with the higher level module*
 
-We can see hpw the pins are assigned via the assingment editor:
+We can see how the pins are assigned via the assingment editor:
 
 ![assignment](task2/assignmenteditor.jpg)
 
@@ -192,8 +192,8 @@ Below is a table explaining the program:
 | alt_putstr   | Writes text to terminal (used over C printf function because it is more compact using HAL commands) |
 | IOWD_ALTERA_AVALON_PIO_DATA(Location) | Gets data from specified location and reads it into a variable 			 |
 | IORR_ALTERA_AVALON_PIO_DATA(Location, Value) | Writes the numeric Value to the given Location 					 |
-| BUTTON_BASE  | Variable created by by importing the information from .sopcinfo file  							     |
-| LED_BASE     | Variable created by by importing the information from .sopcinfo file  							     |
+| BUTTON_BASE  | Variable created by importing the information from .sopcinfo file  							     |
+| LED_BASE     | Variable created by importing the information from .sopcinfo file  							     |
 
 The defined variables were found in the system.h file, as shown below:
 
@@ -243,7 +243,7 @@ nios_setup_v2 u0 (
 
 ```
 
-This added an intermediete wire between the LED and the switch which allowed us to control LED[2] using SW[2]. We then made sure the other LEDR signals were assigned as normal.
+This added an intermediate wire between the LED and the switch which allowed us to control LED[2] using SW[2]. We then made sure the other LEDR signals were assigned as normal.
 
 ## Task 3 ##
 
